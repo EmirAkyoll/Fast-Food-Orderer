@@ -1,11 +1,18 @@
 import React from "react";
+import About from "../../components/About";
 import Carousel from "../../components/Carousel";
-import Header from "../../components/layout/Header";
+import Campaigns from "../../components/Campaigns";
+import Reservation from "../../components/Reservation";
+import MenuWrapper from "../../components/product/MenuWrapper";
 
 const Index = () => {
   return (
-    <div className="relative">
+    <div>
       <Carousel />
+      <Campaigns />
+      <MenuWrapper />
+      <About />
+      <Reservation />
     </div>
   );
 };
