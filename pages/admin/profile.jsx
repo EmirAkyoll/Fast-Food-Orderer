@@ -6,9 +6,11 @@ import Order from "../../components/admin/Order";
 import Category from "../../components/admin/Category";
 import Footer from "../../components/admin/Footer";
 import { toast } from "react-toastify";
+import AddProduct from "../../components/admin/AddProduct";
 
 const Profile = () => {
   const [tabs, setTabs] = useState(0);
+  const [isProductModal, setIsProductModal] = useState(false);
 
   const { push } = useRouter();
 
@@ -41,40 +43,35 @@ const Profile = () => {
         </div>
         <ul className="text-center font-semibold">
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${tabs === 0 && "bg-primary text-white"
-              }`}
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${tabs === 0 && "bg-primary text-white"}`}
             onClick={() => setTabs(0)}
           >
             <i className="fa fa-cutlery"></i>
             <button className="ml-1 ">Products</button>
           </li>
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${tabs === 1 && "bg-primary text-white"
-              }`}
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${tabs === 1 && "bg-primary text-white"}`}
             onClick={() => setTabs(1)}
           >
             <i className="fa fa-motorcycle"></i>
             <button className="ml-1">Orders</button>
           </li>
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${tabs === 2 && "bg-primary text-white"
-              }`}
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${tabs === 2 && "bg-primary text-white"}`}
             onClick={() => setTabs(2)}
           >
             <i className="fa fa-ellipsis-h"></i>
             <button className="ml-1">Categories</button>
           </li>
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${tabs === 3 && "bg-primary text-white"
-              }`}
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${tabs === 3 && "bg-primary text-white"}`}
             onClick={() => setTabs(3)}
           >
             <i className="fa fa-window-maximize"></i>
             <button className="ml-1">Footer</button>
           </li>
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${tabs === 4 && "bg-primary text-white"
-              }`}
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${tabs === 4 && "bg-primary text-white"}`}
             onClick={closeAdminAccount}
           >
             <i className="fa fa-sign-out"></i>
@@ -86,6 +83,14 @@ const Profile = () => {
       {tabs === 1 && <Order />}
       {tabs === 2 && <Category />}
       {tabs === 3 && <Footer />}
+      
+      {isProductModal && <AddProduct setIsProductModal={setIsProductModal} />}
+      <button
+        className="btn-primary !w-12 !h-12 !p-0 absolute bottom-14 right-10 text-4xl"
+        onClick={() => setIsProductModal(true)}
+      >
+        +
+      </button>
     </div>
   );
 };
