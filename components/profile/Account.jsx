@@ -1,17 +1,25 @@
+import axios from "axios";
 import React from "react";
 import Input from "../../components/form/Input";
 import Title from "../../components/ui/Title";
 import { useFormik } from "formik";
 import { profileSchema } from "../../schema/profile";
 
-const Account = () => {
+const Account = ({ user }) => {
     const onSubmit = async (values, actions) => {
-        await new Promise((resolve) => setTimeout(resolve, 4000));
-        actions.resetForm();
+        try {
+            const res = await axios.put(
+                `${process.env.NEXT_PUBLIC_API_URL}/users/${user._id}`,
+                values
+            );
+        } catch (err) {
+            console.log(err);
+        } actions.resetForm();
     };
 
     const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
         useFormik({
+            enableReinitialize: true,
             initialValues: {
                 fullName: "",
                 phoneNumber: "",
@@ -19,10 +27,17 @@ const Account = () => {
                 address: "",
                 job: "",
                 bio: "",
+                fullName: user?.fullName,
+                phoneNumber: user?.phoneNumber,
+                email: user?.email,
+                address: user?.address,
+                job: user?.job,
+                bio: user?.bio,
             },
             onSubmit,
             validationSchema: profileSchema,
         });
+
     const inputs = [
         {
             id: 1,
@@ -80,7 +95,7 @@ const Account = () => {
         },
     ];
     return (
-        <form className="lg:p-8 flex-1 lg:mt-0 mt-5">
+        <form className="lg:p-8 flex-1 lg:mt-0 mt-5" onSubmit={handleSubmit}>
             <Title addClass="text-[40px]">Account Settings</Title>
             <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mt-4">
                 {inputs.map((input) => (
@@ -92,7 +107,9 @@ const Account = () => {
                     />
                 ))}
             </div>
-            <button className="btn-primary mt-4 mb-3 sm:mb-0">Update</button>
+            <button className="btn-primary mt-4" type="submit">
+                Update
+            </button>
         </form>
     );
 };
