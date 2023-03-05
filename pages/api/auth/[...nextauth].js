@@ -4,7 +4,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import User from "../../../models/Users";
 import dbConnect from "../../../util/dbConnect";
 import bcrypt from "bcryptjs";
-import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
+import { MongoDBAdapter} from "@next-auth/mongodb-adapter";
 import clientPromise from "../../../util/mongo";
 
 dbConnect();
@@ -30,6 +30,7 @@ export default NextAuth({
                     type: "password"
                 },
             },
+
             async authorize(credentials, req) {
                 const email = credentials.email;
                 const password = credentials.password;
@@ -55,10 +56,13 @@ export default NextAuth({
     secret: "secret",
 });
 
-const signInUser = async ({ user, password }) => {
+const signInUser = async ({
+    user,
+    password
+}) => {
     const isMAtch = await bcrypt.compare(password, user.password);
     if (!isMAtch) {
-      throw new Error("Incorrect password!");
+        throw new Error("Incorrect password!");
     }
-  return user;
+    return user;
 };

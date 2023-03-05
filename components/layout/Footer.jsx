@@ -30,19 +30,19 @@ const Footer = () => {
               It uses a dictionary of over 200 Latin words, combined with
             </p>
             <div className="flex items-center justify-center mt-5 gap-x-2">
-              <a href="" className="w-8 h-8 grid place-content-center bg-white text-secondary rounded-full ">
+              <a href="" target="_blank" className="w-8 h-8 grid place-content-center bg-white text-secondary rounded-full ">
                 <i className="fa fa-facebook"></i>
               </a>
-              <a href="" className="w-8 h-8 grid place-content-center bg-white text-secondary rounded-full">
+              <a href="" target="_blank" className="w-8 h-8 grid place-content-center bg-white text-secondary rounded-full">
                 <i className="fa fa-twitter"></i>
               </a>
-              <a href="" className="w-8 h-8 grid place-content-center bg-white text-secondary rounded-full">
+              <a href="" target="_blank" className="w-8 h-8 grid place-content-center bg-white text-secondary rounded-full">
                 <i className="fa fa-linkedin"></i>
               </a>
-              <a href="" className="w-8 h-8 grid place-content-center bg-white text-secondary rounded-full">
+              <a href="" target="_blank" className="w-8 h-8 grid place-content-center bg-white text-secondary rounded-full">
                 <i className="fa fa-instagram"></i>
               </a>
-              <a href="" className="w-8 h-8 grid place-content-center bg-white text-secondary rounded-full">
+              <a href="" target="_blank" className="w-8 h-8 grid place-content-center bg-white text-secondary rounded-full">
                 <i className="fa fa-pinterest"></i>
               </a>
             </div>

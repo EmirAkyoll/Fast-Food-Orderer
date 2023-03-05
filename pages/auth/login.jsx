@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { getSession, signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useFormik } from "formik";
 import { loginSchema } from "../../schema/login";
@@ -30,7 +31,7 @@ const Login = () => {
         setCurrentUser(
           res.data?.find((user) => user.email === session?.user?.email)
         );
-        push("/profile/" + currentUser?._id);
+        session && push("/profile/" + currentUser?._id);
       } catch (err) {
         console.log(err);
       }

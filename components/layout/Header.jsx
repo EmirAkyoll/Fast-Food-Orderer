@@ -10,6 +10,7 @@ import Search from "../ui/Search";
 const Header = () => {
     const [isSearchModal, setIsSearchModal] = useState(false);
     const [isMenuModal, setIsMenuModal] = useState(false);
+    
     const cart = useSelector((state) => state.cart);
     const router = useRouter();
 
