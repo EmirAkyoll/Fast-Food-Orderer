@@ -4,6 +4,17 @@ Live => https://fast-food-orderer-ba0pbplzz-emirakyoll.vercel.app/
 
 ## Getting Started
 
+You need a .env file as like:
+"
+MONGODB_URI=mongodb+srv://BLA:BLABLA@cluster0.m1x9zq8.mongodb.net/BLA?retryWrites=true&w=majority
+GITHUB_ID=blabla
+GITHUB_SECRET=blabla
+NEXT_PUBLIC_API_URL=http://localhost:3000/api
+ADMIN_USERNAME=blabla
+ADMIN_PASSWORD=blabla
+ADMIN_TOKEN=SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+"
+
 First, run the development server:
 
 ```bash
